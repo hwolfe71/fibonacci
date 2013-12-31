@@ -2,46 +2,56 @@
  * fibb.java
  * @author: Herb Wolfe Jr <hwolfe71@gmail.com>
  *
- * Simple program to display a sequence of fibonnaci numbers.
- *
- * TODO: allow user to pass count as command line parameter.
+ * Simple program to display a sequence of Fibonnaci numbers.
  */
 
+import static java.lang.System.*;
 import java.util.*;
 
 public class fibb {
 	public static void main(String[] argv) throws Exception {
-		int f1, f2, f3, count, max = 50;
-		Boolean badVal;
+		int f1, f2, f3, count = 0, max = 50;
+		boolean badVal;
 		String tmp;
 
-		do {
+		if (argv.length == 0) {
+			badVal = true;
+		} else {
 			badVal = false;
+			try {
+				count = Integer.parseInt(argv[0]);
+			} catch (NumberFormatException ex) {
+				// parameter isn't an integer
+				badVal = true;
+			}
+		}
 
-			System.out.print("Enter how many fibbonacci numbers to print: ");
+		while (badVal) {
+			out.print("Enter how many Fibonacci numbers to print: ");
 
 			Scanner in = new Scanner(System.in);
 			tmp = in.next();
 
 			count = Integer.parseInt(tmp);
 			if ((count > max) || (count < 3)) {
-				System.out.println("Try a number between 3 and " + max);
-				badVal = true;
+				out.println("Try a number between 3 and " + max);
 			} else {
-				f1 = f2 = 1;
-				System.out.print(f1);
-				System.out.print(" ");
-				System.out.print(f2);
-				System.out.print(" ");
-				for (int i=3; i<=count; i++) {
-					f3 = f1+f2;
-					System.out.print(f3);
-					System.out.print(" ");
-					f1 = f2;
-					f2 = f3;
-				}
-				System.out.println();
+				badVal = false;
 			}
-		} while(badVal);
+		} // end while (badVal)	
+
+		f1 = f2 = 1;
+		out.print(f1);
+		out.print(" ");
+		out.print(f2);
+		out.print(" ");
+		for (int i = 3; i <= count; i++) {
+			f3 = f1+f2;
+			out.print(f3);
+			out.print(" ");
+			f1 = f2;
+			f2 = f3;
+		}
+		out.println();
 	}
 }
