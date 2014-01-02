@@ -1,5 +1,5 @@
 /**
- * fibb.java
+ * fibo.java
  * @author: Herb Wolfe Jr <hwolfe71@gmail.com>
  *
  * Simple program to display a sequence of Fibonnaci numbers.
@@ -8,7 +8,7 @@
 import static java.lang.System.*;
 import java.util.*;
 
-public class fibb {
+public class fibo {
 	public static void main(String[] argv) throws Exception {
 		int f1, f2, f3, count = 0, max = 50;
 		boolean badVal;
