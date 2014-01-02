@@ -3,6 +3,9 @@
  * @author: Herb Wolfe Jr <hwolfe71@gmail.com>
  *
  * Simple program to display a sequence of Fibonnaci numbers.
+ *
+ * Notes: The 46th number is the largest in the sequence that can be stored
+ * in an int. The 92nd number is the largest that can be stored in a long
  */
 
 import static java.lang.System.*;
@@ -10,7 +13,8 @@ import java.util.*;
 
 public class fibo {
 	public static void main(String[] argv) throws Exception {
-		int f1, f2, f3, count = 0, max = 50;
+		long f1, f2, f3;
+		int count = 0, max = 92;
 		boolean badVal;
 		String tmp;
 
@@ -20,6 +24,9 @@ public class fibo {
 			badVal = false;
 			try {
 				count = Integer.parseInt(argv[0]);
+				if ((count > max) || (count < 3)) {
+					badVal = true;
+				}
 			} catch (NumberFormatException ex) {
 				// parameter isn't an integer
 				badVal = true;
