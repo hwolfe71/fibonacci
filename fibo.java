@@ -48,14 +48,11 @@ public class fibo {
 		} // end while (badVal)	
 
 		f1 = f2 = 1;
-		out.print(f1);
-		out.print(" ");
-		out.print(f2);
-		out.print(" ");
+		out.println("Fibonacci #1 is: " + f1);
+		out.println("Fibonacci #2 is: " + f2);
 		for (int i = 3; i <= count; i++) {
 			f3 = f1+f2;
-			out.print(f3);
-			out.print(" ");
+			out.println("Fibonacci #" + i + " is: " + f3);
 			f1 = f2;
 			f2 = f3;
 		}
